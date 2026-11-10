@@ -1,0 +1,3 @@
+# Require a valid Supabase user JWT before the function runs.
+[functions.create-employee]
+verify_jwt = true
