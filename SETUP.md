@@ -32,7 +32,7 @@ values ('ERGUN_AUTH_UUID', 'BUSINESS_UUID', 'Ergün', 'owner');
 
 1. Supabase projesinde **Edge Functions** bölümünü aç veya bilgisayarında Supabase CLI kurup projeye bağlan.
 2. Bu depodaki `supabase/functions/create-employee/index.ts` fonksiyonunu `create-employee` adıyla deploy et.
-3. Supabase → **Project Settings → API** bölümündeki Project URL, anon/publishable key ve service_role key değerlerinin projeye ait olduğunu doğrula. Edge Functions ortamında `SUPABASE_URL`, `SUPABASE_ANON_KEY` ve `SUPABASE_SERVICE_ROLE_KEY` değişkenlerinin tanımlı olması gerekir. Supabase'in varsayılan Edge Function ortamı bu değişkenleri sağlar; eksikse CLI secrets ile ekle.
+3. Supabase → **Project Settings → API** bölümündeki Project URL, anon/publishable key ve service_role key değerlerinin projeye ait olduğunu doğrula. Edge Functions ortamında `SUPABASE_URL`, `SUPABASE_ANON_KEY` ve `SUPABASE_SERVICE_ROLE_KEY` değişkenlerinin tanımlı olması gerekir. Supabase, yeni projelerde `SUPABASE_PUBLISHABLE_KEYS` ve `SUPABASE_SECRET_KEYS` değişkenlerini otomatik sağlar; fonksiyon bu yeni anahtarları kullanır ve eski `ANON_KEY` / `SERVICE_ROLE_KEY` ortam değişkenlerini de geriye dönük destekler. Bu anahtarları GitHub'a veya Vercel'in `VITE_` değişkenlerine ekleme.
 4. Fonksiyonun JWT doğrulaması açık kalmalı. Fonksiyon ayrıca oturumu doğrular ve yalnızca aktif `owner` rolüne izin verir.
 5. Vercel yeni commit'i yayınladıktan sonra Ergün hesabıyla giriş yap → **Çalışanlar → Çalışan ekle**. Ad soyad, e-posta ve en az 8 karakterli geçici şifreyi gir.
 
